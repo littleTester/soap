@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="b565b010-f031-46e1-b483-ac4cd3d2d92e" activeEnvironment="Default environment" name="ConvertWeightsSoap" lastOpened="2016-11-07T21:51:47.953+02:00" resourceRoot="${projectDir}" soapui-version="6.0.0" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="IncludeOverview">true</con:setting><con:setting id="IncludeResults">true</con:setting><con:setting id="FlowLayout">false</con:setting><con:setting id="ErrorDetails">true</con:setting><con:setting id="IncludeCoverage">true</con:setting></con:settings><con:interface xsi:type="con:WsdlInterface" id="fdce046d-8502-4400-8ac1-40f5f2a06487" wsaVersion="NONE" name="ConvertWeightsSoap" type="wsdl" bindingName="{http://www.webserviceX.NET/}ConvertWeightsSoap" soapVersion="1_1" anonymous="optional" definition="http://www.webservicex.net/ConvertWeight.asmx?WSDL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://www.webservicex.net/ConvertWeight.asmx?WSDL"><con:part><con:url>http://www.webservicex.net/ConvertWeight.asmx?WSDL</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://www.webserviceX.NET/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.webserviceX.NET/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.webserviceX.NET/">
+      <s:element name="ConvertWeight">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Weight" type="s:double"/>
+            <s:element minOccurs="1" maxOccurs="1" name="FromUnit" type="tns:WeightUnit"/>
+            <s:element minOccurs="1" maxOccurs="1" name="ToUnit" type="tns:WeightUnit"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="WeightUnit">
+        <s:restriction base="s:string">
+          <s:enumeration value="Grains"/>
+          <s:enumeration value="Scruples"/>
+          <s:enumeration value="Carats"/>
+          <s:enumeration value="Grams"/>
+          <s:enumeration value="Pennyweight"/>
+          <s:enumeration value="DramAvoir"/>
+          <s:enumeration value="DramApoth"/>
+          <s:enumeration value="OuncesAvoir"/>
+          <s:enumeration value="OuncesTroyApoth"/>
+          <s:enumeration value="Poundals"/>
+          <s:enumeration value="PoundsTroy"/>
+          <s:enumeration value="PoundsAvoir"/>
+          <s:enumeration value="Kilograms"/>
+          <s:enumeration value="Stones"/>
+          <s:enumeration value="QuarterUS"/>
+          <s:enumeration value="Slugs"/>
+          <s:enumeration value="weight100UScwt"/>
+          <s:enumeration value="ShortTons"/>
+          <s:enumeration value="MetricTonsTonne"/>
+          <s:enumeration value="LongTons"/>
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="ConvertWeightResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ConvertWeightResult" type="s:double"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="double" type="s:double"/>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ConvertWeightSoapIn">
+    <wsdl:part name="parameters" element="tns:ConvertWeight"/>
+  </wsdl:message>
+  <wsdl:message name="ConvertWeightSoapOut">
+    <wsdl:part name="parameters" element="tns:ConvertWeightResponse"/>
+  </wsdl:message>
+  <wsdl:message name="ConvertWeightHttpGetIn">
+    <wsdl:part name="Weight" type="s:string"/>
+    <wsdl:part name="FromUnit" type="s:string"/>
+    <wsdl:part name="ToUnit" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="ConvertWeightHttpGetOut">
+    <wsdl:part name="Body" element="tns:double"/>
+  </wsdl:message>
+  <wsdl:message name="ConvertWeightHttpPostIn">
+    <wsdl:part name="Weight" type="s:string"/>
+    <wsdl:part name="FromUnit" type="s:string"/>
+    <wsdl:part name="ToUnit" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="ConvertWeightHttpPostOut">
+    <wsdl:part name="Body" element="tns:double"/>
+  </wsdl:message>
+  <wsdl:portType name="ConvertWeightsSoap">
+    <wsdl:operation name="ConvertWeight">
+      <wsdl:input message="tns:ConvertWeightSoapIn"/>
+      <wsdl:output message="tns:ConvertWeightSoapOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ConvertWeightsHttpGet">
+    <wsdl:operation name="ConvertWeight">
+      <wsdl:input message="tns:ConvertWeightHttpGetIn"/>
+      <wsdl:output message="tns:ConvertWeightHttpGetOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ConvertWeightsHttpPost">
+    <wsdl:operation name="ConvertWeight">
+      <wsdl:input message="tns:ConvertWeightHttpPostIn"/>
+      <wsdl:output message="tns:ConvertWeightHttpPostOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ConvertWeightsSoap" type="tns:ConvertWeightsSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="ConvertWeight">
+      <soap:operation soapAction="http://www.webserviceX.NET/ConvertWeight" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ConvertWeightsSoap12" type="tns:ConvertWeightsSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="ConvertWeight">
+      <soap12:operation soapAction="http://www.webserviceX.NET/ConvertWeight" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ConvertWeightsHttpGet" type="tns:ConvertWeightsHttpGet">
+    <http:binding verb="GET"/>
+    <wsdl:operation name="ConvertWeight">
+      <http:operation location="/ConvertWeight"/>
+      <wsdl:input>
+        <http:urlEncoded/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ConvertWeightsHttpPost" type="tns:ConvertWeightsHttpPost">
+    <http:binding verb="POST"/>
+    <wsdl:operation name="ConvertWeight">
+      <http:operation location="/ConvertWeight"/>
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ConvertWeights">
+    <wsdl:port name="ConvertWeightsSoap" binding="tns:ConvertWeightsSoap">
+      <soap:address location="http://www.webservicex.net/ConvertWeight.asmx"/>
+    </wsdl:port>
+    <wsdl:port name="ConvertWeightsSoap12" binding="tns:ConvertWeightsSoap12">
+      <soap12:address location="http://www.webservicex.net/ConvertWeight.asmx"/>
+    </wsdl:port>
+    <wsdl:port name="ConvertWeightsHttpGet" binding="tns:ConvertWeightsHttpGet">
+      <http:address location="http://www.webservicex.net/ConvertWeight.asmx"/>
+    </wsdl:port>
+    <wsdl:port name="ConvertWeightsHttpPost" binding="tns:ConvertWeightsHttpPost">
+      <http:address location="http://www.webservicex.net/ConvertWeight.asmx"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://www.webservicex.net/ConvertWeight.asmx</con:endpoint></con:endpoints><con:operation id="1c1e0fa4-0cb2-4900-9dd8-565985e27a25" isOneWay="false" action="http://www.webserviceX.NET/ConvertWeight" name="ConvertWeight" bindingOperationName="ConvertWeight" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="12250111-cc95-4bba-8e03-7ee98203db5e" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.webservicex.net/ConvertWeight.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.webserviceX.NET/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <web:ConvertWeight>
+         <web:Weight>11</web:Weight>
+         <web:FromUnit>Grains</web:FromUnit>
+         <web:ToUnit>Pennyweight</web:ToUnit>
+      </web:ConvertWeight>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.webserviceX.NET/ConvertWeight"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="ebe0bf1a-c1c3-44f7-a993-55f694ed12c4" wsaVersion="NONE" name="ConvertWeightsSoap12" type="wsdl" bindingName="{http://www.webserviceX.NET/}ConvertWeightsSoap12" soapVersion="1_2" anonymous="optional" definition="http://www.webservicex.net/ConvertWeight.asmx?WSDL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://www.webservicex.net/ConvertWeight.asmx?WSDL"><con:part><con:url>http://www.webservicex.net/ConvertWeight.asmx?WSDL</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://www.webserviceX.NET/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.webserviceX.NET/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.webserviceX.NET/">
+      <s:element name="ConvertWeight">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Weight" type="s:double"/>
+            <s:element minOccurs="1" maxOccurs="1" name="FromUnit" type="tns:WeightUnit"/>
+            <s:element minOccurs="1" maxOccurs="1" name="ToUnit" type="tns:WeightUnit"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="WeightUnit">
+        <s:restriction base="s:string">
+          <s:enumeration value="Grains"/>
+          <s:enumeration value="Scruples"/>
+          <s:enumeration value="Carats"/>
+          <s:enumeration value="Grams"/>
+          <s:enumeration value="Pennyweight"/>
+          <s:enumeration value="DramAvoir"/>
+          <s:enumeration value="DramApoth"/>
+          <s:enumeration value="OuncesAvoir"/>
+          <s:enumeration value="OuncesTroyApoth"/>
+          <s:enumeration value="Poundals"/>
+          <s:enumeration value="PoundsTroy"/>
+          <s:enumeration value="PoundsAvoir"/>
+          <s:enumeration value="Kilograms"/>
+          <s:enumeration value="Stones"/>
+          <s:enumeration value="QuarterUS"/>
+          <s:enumeration value="Slugs"/>
+          <s:enumeration value="weight100UScwt"/>
+          <s:enumeration value="ShortTons"/>
+          <s:enumeration value="MetricTonsTonne"/>
+          <s:enumeration value="LongTons"/>
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="ConvertWeightResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ConvertWeightResult" type="s:double"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="double" type="s:double"/>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ConvertWeightSoapIn">
+    <wsdl:part name="parameters" element="tns:ConvertWeight"/>
+  </wsdl:message>
+  <wsdl:message name="ConvertWeightSoapOut">
+    <wsdl:part name="parameters" element="tns:ConvertWeightResponse"/>
+  </wsdl:message>
+  <wsdl:message name="ConvertWeightHttpGetIn">
+    <wsdl:part name="Weight" type="s:string"/>
+    <wsdl:part name="FromUnit" type="s:string"/>
+    <wsdl:part name="ToUnit" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="ConvertWeightHttpGetOut">
+    <wsdl:part name="Body" element="tns:double"/>
+  </wsdl:message>
+  <wsdl:message name="ConvertWeightHttpPostIn">
+    <wsdl:part name="Weight" type="s:string"/>
+    <wsdl:part name="FromUnit" type="s:string"/>
+    <wsdl:part name="ToUnit" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="ConvertWeightHttpPostOut">
+    <wsdl:part name="Body" element="tns:double"/>
+  </wsdl:message>
+  <wsdl:portType name="ConvertWeightsSoap">
+    <wsdl:operation name="ConvertWeight">
+      <wsdl:input message="tns:ConvertWeightSoapIn"/>
+      <wsdl:output message="tns:ConvertWeightSoapOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ConvertWeightsHttpGet">
+    <wsdl:operation name="ConvertWeight">
+      <wsdl:input message="tns:ConvertWeightHttpGetIn"/>
+      <wsdl:output message="tns:ConvertWeightHttpGetOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ConvertWeightsHttpPost">
+    <wsdl:operation name="ConvertWeight">
+      <wsdl:input message="tns:ConvertWeightHttpPostIn"/>
+      <wsdl:output message="tns:ConvertWeightHttpPostOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ConvertWeightsSoap" type="tns:ConvertWeightsSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="ConvertWeight">
+      <soap:operation soapAction="http://www.webserviceX.NET/ConvertWeight" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ConvertWeightsSoap12" type="tns:ConvertWeightsSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="ConvertWeight">
+      <soap12:operation soapAction="http://www.webserviceX.NET/ConvertWeight" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ConvertWeightsHttpGet" type="tns:ConvertWeightsHttpGet">
+    <http:binding verb="GET"/>
+    <wsdl:operation name="ConvertWeight">
+      <http:operation location="/ConvertWeight"/>
+      <wsdl:input>
+        <http:urlEncoded/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ConvertWeightsHttpPost" type="tns:ConvertWeightsHttpPost">
+    <http:binding verb="POST"/>
+    <wsdl:operation name="ConvertWeight">
+      <http:operation location="/ConvertWeight"/>
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ConvertWeights">
+    <wsdl:port name="ConvertWeightsSoap" binding="tns:ConvertWeightsSoap">
+      <soap:address location="http://www.webservicex.net/ConvertWeight.asmx"/>
+    </wsdl:port>
+    <wsdl:port name="ConvertWeightsSoap12" binding="tns:ConvertWeightsSoap12">
+      <soap12:address location="http://www.webservicex.net/ConvertWeight.asmx"/>
+    </wsdl:port>
+    <wsdl:port name="ConvertWeightsHttpGet" binding="tns:ConvertWeightsHttpGet">
+      <http:address location="http://www.webservicex.net/ConvertWeight.asmx"/>
+    </wsdl:port>
+    <wsdl:port name="ConvertWeightsHttpPost" binding="tns:ConvertWeightsHttpPost">
+      <http:address location="http://www.webservicex.net/ConvertWeight.asmx"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://www.webservicex.net/ConvertWeight.asmx</con:endpoint></con:endpoints><con:operation id="06ec3dee-ba8e-4952-8d76-d5c68f48bcd4" isOneWay="false" action="http://www.webserviceX.NET/ConvertWeight" name="ConvertWeight" bindingOperationName="ConvertWeight" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="1545ccf0-8607-4b62-ad09-794edf586164" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.webservicex.net/ConvertWeight.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:web="http://www.webserviceX.NET/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <web:ConvertWeight>\r
+         <web:Weight>?</web:Weight>\r
+         <web:FromUnit>?</web:FromUnit>\r
+         <web:ToUnit>?</web:ToUnit>\r
+      </web:ConvertWeight>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.webserviceX.NET/ConvertWeightsSoap/ConvertWeightRequest"/></con:call></con:operation></con:interface><con:testSuite id="c9a0e166-cca6-48da-b45d-4b5a1a4c9570" name="ConvertWeightsSoap TestSuite"><con:settings/><con:savedRecentRuns>1</con:savedRecentRuns><con:runType>SEQUENTIAL</con:runType><con:testCase id="5c368f5c-0eaf-4313-a223-f51ba02c669d" discardOkResults="true" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="ConvertWeight TestCase" searchProperties="true" timeout="0"><con:settings/><con:savedRecentRuns>1</con:savedRecentRuns><con:testStep type="request" id="9f9d2a94-0a8b-48f7-a49f-a1d57442a2af" name="ConvertWeight"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ConvertWeightsSoap</con:interface><con:operation>ConvertWeight</con:operation><con:request name="ConvertWeight" id="a9f06322-fe0e-479f-bfdd-952dfe1a08e6"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.webservicex.net/ConvertWeight.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.webserviceX.NET/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <web:ConvertWeight>
+         <web:Weight>12</web:Weight>
+         <web:FromUnit>Kilograms</web:FromUnit>
+         <web:ToUnit>Grains</web:ToUnit>
+      </web:ConvertWeight>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="XPath Match" id="12badbdc-8d66-463b-a108-77d4d097a553" name="Match content of [ConvertWeightResult]"><con:configuration><path>declare namespace ns1='http://www.webserviceX.NET/';
+//ns1:ConvertWeightResponse[1]/ns1:ConvertWeightResult[1]/text()</path><content>185185.18518518517</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig action="http://www.webserviceX.NET/ConvertWeight" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="2ea07d6a-7d50-4d45-b848-d7b609f58247" discardOkResults="true" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="ConvertWeight TestCase" searchProperties="true" timeout="0"><con:settings/><con:testStep type="request" id="0dd2a907-b321-4ca7-b2d5-cdaf3ac59841" name="ConvertWeight"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ConvertWeightsSoap12</con:interface><con:operation>ConvertWeight</con:operation><con:request name="ConvertWeight" id="4313de7d-7744-4fe8-a7a0-626966559a90"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.webservicex.net/ConvertWeight.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:web="http://www.webserviceX.NET/">
+   <soap:Header/>
+   <soap:Body>
+      <web:ConvertWeight>
+         <web:Weight>?</web:Weight>
+         <web:FromUnit>?</web:FromUnit>
+         <web:ToUnit>?</web:ToUnit>
+      </web:ConvertWeight>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig action="http://www.webserviceX.NET/ConvertWeightsSoap/ConvertWeightRequest" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:properties/><con:reportParameters/></con:testSuite><con:savedRecentRuns>1</con:savedRecentRuns><con:requirements/><con:properties/><con:wssContainer/><con:databaseConnectionContainer/><con:oAuth2ProfileContainer/><con:reporting><con:xmlTemplates/><con:parameters/></con:reporting><con:authRepository/><con:tags/></con:soapui-project>
